@@ -1,0 +1,28 @@
+$border: 5px;
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    height: 400px;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: $border;
+    padding: 10px;
+    box-shadow: 1px 2px 6px 0px black;
+    width: 30%;
+    margin: auto;
+    margin-top:30px;
+}
+
+.btn-primary{
+    margin-left:560px;
+    margin-top:10px;
+}
+
+.form-check-input{
+    border-radius:$border;
+    padding: 5px;
+    margin-left:10px;
+    outline:none;
+}

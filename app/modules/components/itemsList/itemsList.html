@@ -1,0 +1,109 @@
+<!-- item order modal -->
+<div class="order-modal" tabindex="-1" role="dialog" ng-if="itemsListCtrl.isActive">
+	<div class="modal-dialog" role="document">
+		<div class="order-modal-content">
+			<div class="modal-body">
+				<p class="modal-body-name">{{itemsListCtrl.item.name}}</p>
+				<ul>
+						<p class="size" ng-if="itemsListCtrl.item.price_levels.length > 1" >Choose size:</p>
+					<li ng-repeat="price in itemsListCtrl.item.price_levels" ng-if="itemsListCtrl.item.price_levels.length > 1">
+							
+						<label><input  type="radio" name="radio" ng-click="itemsListCtrl.setOrd(price)" ng-model="price.price" value="{{price.price}}">{{price.price}}</label>
+					</li>
+				</ul>
+				<ul ng-if="itemsListCtrl.modifierGroups">
+					<li ng-repeat="modifier in itemsListCtrl.modifierGroups">
+						<div ng-if="modifier.name === 'Temperature'">
+							<p>{{modifier.name}}:</p>
+							<ul>
+								<li ng-repeat="mod in modifier.options">
+									<label class="mod-lbl"><input ng-click="itemsListCtrl.setOrd(mod,modifier.name)" type="radio" name="radio" ng-model="mod.name" value="{{mod.name}}">
+										<p class="mod-name">{{mod.name}}</p>
+									</label>
+
+								</li>
+							</ul>
+						</div>
+						<div ng-if="modifier.name === 'Toppings'">
+							<p>{{modifier.name}}</p>
+							<ul>
+								<li ng-repeat="mod in modifier.options">
+									<label class="mod-lbl"><input ng-click="itemsListCtrl.setOrd(mod)" type="radio" name="radio1" ng-model="mod.name" value="{{mod.name}}">
+										<p class="mod-name">{{mod.name}}</p>
+									</label>
+
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<p>comments:</p>
+			<input class="cmt-inp" ng-model="comment" type="text" />
+			<div class="modal-footer">
+				<button type="button" class="btn-close" ng-click="itemsListCtrl.closeModal(comment)">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- return item msg modal -->
+<div class="modal" tabindex="-1" role="dialog" ng-if="itemsListCtrl.throwMsg">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<i class="fa fa-times" aria-hidden="true" ng-click="itemsListCtrl.close()"></i>
+			<p>This is item is not in stock</p>
+			<p>Please return this item</p>
+		</div>
+	</div>
+</div>
+
+<!-- print msg modal -->
+<div class="modal" tabindex="-1" role="dialog" ng-if="itemsListCtrl.msg">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<i class="fa fa-times" aria-hidden="true" ng-click="itemsListCtrl.close()"></i>
+			<p>Your items were sent to the kitchen</p>
+		</div>
+	</div>
+</div>
+
+
+<!-- drag and drop  -->
+<ul dnd-list="lists" class="list-container">
+	<li class="item-li" ng-repeat="item in itemsListCtrl.currcategory track by $index" dnd-draggable="item" dnd-type="item.name"
+	 dnd-effect-allowed="move" dnd-moved="lists.splice($index, 1)" dnd-selected="models.selected = item">
+		<div class="item-name-edit" ng-if="item.name !== 'Drag your items to print'">
+			<div class="item-wraper">
+				<h3 class="name">{{item.name}}</h3>
+				<a class="edit" ui-sref="itemDetails({itemId: item.id})" ng-if="item.name">
+				<span ng-if="item.name!== 'Drag your items to print'" >
+				<i class="fa fa-pencil" aria-hidden="true"></i>
+			</span>
+			</a>
+			</div>
+		</div>
+		<div dnd-list="item.columns" class="items-container">
+			<div ng-repeat="subItem in item.columns  " dnd-draggable="subItem" dnd-type="'item'" dnd-moved="item.columns.splice($index, 1)"
+			 dnd-effect-allowed="move">
+				<div class="items-container-style">
+					<p class="sub-name"> {{subItem.name}} </p>
+					<div ng-if="subItem.name !== 'YOUR ITEMS TO PRINT' ">
+				
+						<i class="fa fa-pencil-square-o" aria-hidden="true" ng-click="itemsListCtrl.editItem(subItem)"></i>
+					</div>
+				</div>
+			</div>
+			<div ng-if="item.columns.length > 1">
+				<button class="prnt-btn" ng-click="itemsListCtrl.print()">Print</button>
+			</div>
+			<div class="dndPlaceholder">
+				<strong>Drop Any Row in Container</strong>
+			</div>
+		</div>
+	</li>
+	<li class="dndPlaceholder">
+		<strong>Drop Any Row Here</strong>
+	</li>
+
+</ul>

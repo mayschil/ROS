@@ -1,0 +1,30 @@
+$font:'Lato';
+$pointer:pointer;
+$border: 5px;
+$color:#262121;
+$font-size:20px;
+
+
+
+body::after {
+  background: url("http://res.cloudinary.com/dl58rg6j8/image/upload/v1516709410/menu-restaurant-vintage-table_mz7zi5.jpg");
+  background-repeat: no-repeat;
+  content: "";
+  opacity: 0.45;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+li{
+  list-style: none;
+  cursor: pointer;
+}
+
+.fa-times:hover{
+  cursor: pointer;
+}

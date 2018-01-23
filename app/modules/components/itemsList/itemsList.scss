@@ -1,0 +1,148 @@
+
+$font:'Lato';
+$pointer:pointer;
+$border: 5px;
+$color:#262121;
+$font-size:20px;
+
+
+.modal {
+    display: block;
+}
+
+.list-container{
+    list-style: none;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    width:35%;
+    margin: auto;
+    
+}
+
+.item-name-edit{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: $border;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: rgba(232, 225, 225,0.7);
+    justify-content: center;
+}
+
+.item-wraper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.name{
+    margin-right: 10px;
+    color:$color;
+    font-size:$font-size;
+}
+
+.items-container{
+    border-radius: $border;
+}
+
+.items-container-style{
+   padding:10px; 
+   display: flex;
+   justify-content: space-between;
+   border:1px solid #cccccc;
+   border-radius: $border;
+   background-color: rgba(109, 115, 157, 0.77);
+   align-items: center;
+}
+
+.prnt-btn{
+    border-radius: $border;
+    border: none;
+    height: 40px;
+    width: 60px;
+    margin-top:5px;
+    color:$color;
+}
+
+.modal-content{
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    margin:auto;
+    margin-top:220px;
+    background-color: rgba(230, 140, 140, 0.97);
+    font-size:$font-size;
+}
+
+.fa-times{
+    margin-bottom:10px;
+}
+
+
+.edit{
+    margin-top: 10px;
+}
+
+.fa-pencil-square-o:hover{
+    cursor: $pointer;
+}
+
+.sub-name{
+    margin-top: 10px;    
+}
+
+.order-modal{
+    position: absolute;
+    margin-left:36%;
+    background-color: #e7dfdff0;
+    margin-bottom: 30px;
+    border-radius: $border;
+    padding: 0 30px 0 30px;
+    width:30%;
+    box-shadow: 1px 2px 6px 0px black;
+}
+
+.btn-close{
+    margin: auto;
+    border-radius: $border;
+    background-color: #0069d9;
+    border: none;
+    width:80px;
+    height: 40px;   
+}
+
+.mod-name{
+    margin-left: 5px;
+}
+
+.mod-lbl{
+    display: flex;
+}
+
+.cmt-inp{
+    border-radius: $border;
+    padding: 5px;
+}
+
+.modal-body-name{
+    font-size: 30px;
+    width:100%;
+}
+
+.modal-dialog{
+    margin-top:none;
+    margin-bottom:none;
+    width:100%;
+}
+
+.order-modal-content{
+    width:100%;
+}
+
+.size{
+    margin-left: -40px;
+}
