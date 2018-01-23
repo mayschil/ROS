@@ -5,6 +5,9 @@
 				<p class="ctg-name">{{category.name}}</p>
 			</li>
 		</ul>
+		<p class="msg">Welcome to ROS. In order to start please search for a meal or press on one of the categories.</p>
+		<p class="msg">Then drag the item your client wish to order into the drag box</p>
+		
 		<input class="search-box" type="text" ng-model="text" ng-change="homePageCtrl.checkWord(text)" />
 	</div>
 	<items-list currcategory="homePageCtrl.chosenCategory" ng-if="homePageCtrl.isActive"></items-list>

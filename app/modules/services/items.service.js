@@ -27,7 +27,7 @@ const catIems = {
                 },
                 {
                     "id": "rMTAbTjr",
-                    "in_stock": false,
+                    "in_stock": true,
                     "modifier_groups_count": 2,
                     "modifier_groups_id": ['eMiy4iR4', 'kMT85Tay'],
                     "name": "New Bacon-ings",

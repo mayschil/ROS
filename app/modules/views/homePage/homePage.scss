@@ -11,6 +11,7 @@ $font-size:20px;
     list-style: none;
     display: flex;
     justify-content: space-around;
+    max-width: 800px;
     width:100%;
     margin: auto;
     color:$color;
@@ -34,12 +35,18 @@ $font-size:20px;
 .top-container{
     padding-bottom: 10px;
     display: flex;
+    height: 180px;
     flex-direction: column;
-    height: 100px;
     justify-content: space-around;
     margin-bottom: 50px;
     background-color: #bdadadab;
 
+}
+
+.msg{
+    margin: 0;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .ctg-name{

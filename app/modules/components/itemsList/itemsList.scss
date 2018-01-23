@@ -147,6 +147,7 @@ $font-size:20px;
 .modal-body-name{
     font-size: 30px;
     width:100%;
+    margin-bottom: 20px;
 }
 
 .modal-dialog{
@@ -171,4 +172,8 @@ $font-size:20px;
     max-width: 500px;
     width: 100%;
     margin: auto;
+}
+
+.msg{
+    text-align: center;
 }

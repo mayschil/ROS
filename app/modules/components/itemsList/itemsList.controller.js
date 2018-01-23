@@ -42,6 +42,7 @@ function itemsListController(ItemsService, $window) {
         var itemsToPrint = [];
         var l = this.currcategory.length;
         this.tempCont = this.currcategory.splice(l - 1, 1)
+        this.currcategory = [];
         var arr = this.tempCont[0].columns
 
         for (var i = 0; i < arr.length; i++) {
