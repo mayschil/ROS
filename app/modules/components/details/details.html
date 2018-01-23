@@ -1,4 +1,4 @@
-<div>
+<div class="dtl-form">
     <form>
             <div class="form-check">
                     Id:<input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.id" value="{{detailsCtrl.currItem.id}}" autofocus>
@@ -26,18 +26,20 @@
                     Open:<input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.open" value="{{detailsCtrl.currItem.open}}" autofocus>
                 <label class="form-check-label" for="exampleCheck1"></label>
             </div>
-            <div class="form-check">
-                    Price: <input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.price" value="{{detailsCtrl.currItem.price}}" autofocus>
-                <label class="form-check-label" for="exampleCheck1"></label>
-            </div>
-            <div class="form-check">
-                    Price_levels.id: <input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.price_levels[0].id" value="{{detailsCtrl.currItem.price_levels[0].id}}"autofocus>
-                <label class="form-check-label" for="exampleCheck1"></label>
-            </div>
-            <div class="form-check">
-                    Price_levels.price: <input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.price_levels[0].price" value="{{detailsCtrl.currItem.price_levels[0].price}}"autofocus>
-                <label class="form-check-label" for="exampleCheck1"></label>
-            </div>
+
+            <ul class="dtl-prc-list">
+                <li class="dtl-prc" ng-repeat="price in detailsCtrl.currItem.price_levels">
+                    <div class="dtl-prc-div">
+                    Price_levels.id: <input type="text"  class="form-check-input" ng-model="price.id" value="{{price.id}}">
+                    <label class="form-check-label" for="exampleCheck1"></label>
+                </div>
+                <div>
+                    Price_levels.price: <input type="text" class="form-check-input" ng-model="price.price" value="{{price.price}}">
+                    <label class="form-check-label" for="exampleCheck1"></label>
+                </div>
+                </li>
+            </ul>
+
     </form>
     <a ui-sref="homePage">
             <button type="submit" class="btn btn-primary">Save changes</button>

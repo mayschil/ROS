@@ -11,12 +11,10 @@ function HomePageController(ItemsService) {
             "columns": [
 
                 {
-                    "name": "YOUR ITEMS TO PRINT",
+                    "name": "Drag your items to print",
                     "id": 2
                 }
-
             ]
-
         };
         
     this.isActive = false;
@@ -36,8 +34,6 @@ function HomePageController(ItemsService) {
             return item
         })
         this.chosenCategory.push(this.itemsToCart);
-        console.log(this.chosenCategory)
-        console.log(this.categories)
     };
 
 this.checkWord = function(text){
@@ -69,7 +65,6 @@ this.checkWord = function(text){
                 } 
               }
         }
-        
         this.chosenCategory.push(this.itemsToCart);
     }
     }

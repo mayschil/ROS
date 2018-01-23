@@ -20,7 +20,7 @@ function itemsListController(ItemsService, $window) {
             }
         }
     }
-
+    this.msg = false;
     this.close = function () {
         this.throwMsg = false;
         if (this.msg) $window.location.reload();
@@ -36,8 +36,7 @@ function itemsListController(ItemsService, $window) {
         this.count++;
     }
 
-    this.msg = false;
-
+    
 //this function prints the items to order
     this.print = function () {
         if (!this.orders.length) {
@@ -59,9 +58,7 @@ function itemsListController(ItemsService, $window) {
 
     this.order = { mods: [] };
     this.orders = [];
-    this.qnt = '';
     this.setOrd = function (term) {
-        console.log(term)
         if (!this.order.name) this.order.name = this.item.name;
         if(!term.name)  this.order.mods.push({ modName: term.price });
         else this.order.mods.push({ modName: term.name });

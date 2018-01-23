@@ -20,6 +20,17 @@ body::after {
   z-index: -1;
 }
 
+.header-title{
+  max-width: 1600px;
+  width:100%;
+  background-color: black;
+  color:white;
+  text-align: center;
+  font-size: 80px;
+  font-family: $font;
+}
+
+
 li{
   list-style: none;
   cursor: pointer;

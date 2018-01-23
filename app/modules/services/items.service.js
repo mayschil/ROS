@@ -375,12 +375,12 @@ const modifierGruop = {
 
 
 class itemsService {
+    
     getItems() {
         return catIems
     }
 
     getItem(itemId) {
-
         var itemToReturn;
         catIems.categories.forEach(category => {
             category.items.forEach(item => {
@@ -397,7 +397,6 @@ class itemsService {
                 if (item.id === id) items.push(item)
             })
         })
-
         return items
     }
 }
