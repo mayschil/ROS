@@ -9,7 +9,7 @@ function itemsListController(ItemsService, $window) {
     this.editItem = function (item) {
         this.modifierGroups = null;
         this.item = item;
-
+        this.item.order = [];
         if (!this.item.in_stock) {
             this.throwMsg = true;
         }
@@ -36,32 +36,36 @@ function itemsListController(ItemsService, $window) {
         this.count++;
     }
 
-    
-//this function prints the items to order
+
+    //this function prints the items to order
     this.print = function () {
-        if (!this.orders.length) {
-            var l = this.currcategory.length;
-            this.tempCont = this.currcategory.splice(l - 1, 1)
-            console.log(this.tempCont)
+        var itemsToPrint = [];
+        var l = this.currcategory.length;
+        this.tempCont = this.currcategory.splice(l - 1, 1)
+        var arr = this.tempCont[0].columns
+
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].order) itemsToPrint.push({ name: arr[i].name, order: arr[i].order })
+            else {
+                if (arr[i].name !== 'Drag your items to print') itemsToPrint.push(arr[i].name)
+            }
         }
-        else console.log(this.orders)
+        console.log(itemsToPrint)
         this.msg = true;
     }
 
     this.closeModal = function (comment) {
-        this.order.comment = comment;
-        this.orders.push(this.order)
+        this.item.order.push({ 'comment': comment })
         this.isActive = false;
-        this.order = { mods: [] };
+
     }
 
 
-    this.order = { mods: [] };
-    this.orders = [];
     this.setOrd = function (term) {
-        if (!this.order.name) this.order.name = this.item.name;
-        if(!term.name)  this.order.mods.push({ modName: term.price });
-        else this.order.mods.push({ modName: term.name });
+        console.log(term)
+        if (term.price) this.item.order.push(term.price)
+        else this.item.order.push(term.name)
+
     }
 }
 

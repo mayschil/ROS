@@ -11,14 +11,15 @@ form{
     box-shadow: 1px 2px 6px 0px black;
     width: 90%;
     margin: auto;
-    margin-top:50px;
+    margin-top:100px;
 }
 
 .dtl-form{
-    margin-bottom: 50px;
+    height: 760px;
     max-width: 500px;
     width: 100%;
     margin: auto;
+    scroll-behavior: none;
 }
 
 .btn-primary{

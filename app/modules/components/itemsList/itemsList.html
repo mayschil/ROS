@@ -18,7 +18,7 @@
 								<p>{{modifier.name}}:</p>
 								<ul>
 									<li ng-repeat="mod in modifier.options">
-										<label class="mod-lbl"><input ng-click="itemsListCtrl.setOrd(mod,modifier.name)" type="radio" name="radio" ng-model="mod.name" value="{{mod.name}}">
+										<label class="mod-lbl"><input ng-click="itemsListCtrl.setOrd(mod)" type="radio" name="radio" ng-model="mod.name" value="{{mod.name}}">
 										<p class="mod-name">{{mod.name}}</p>
 									</label>
 
