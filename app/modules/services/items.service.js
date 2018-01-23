@@ -375,7 +375,7 @@ const modifierGruop = {
 
 
 class itemsService {
-    
+
     getItems() {
         return catIems
     }
@@ -398,6 +398,15 @@ class itemsService {
             })
         })
         return items
+    }
+
+    saveItem(item) {
+        for (var i = 0; i < catIems.categories.length; i++) {
+            for (var j = 0; j < catIems.categories[i].items.length; j++) {
+                if(catIems.categories[i].items[j].id === item.id) catIems.categories[i].items[j] = item;
+               
+            }
+        }
     }
 }
 

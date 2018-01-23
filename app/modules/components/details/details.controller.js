@@ -1,7 +1,7 @@
 "use strict";
 
 
-function DetailsController(ItemsService, $stateParams) {
+function DetailsController(ItemsService, $stateParams,$state) {
 
     'ngInject'
     const itemId = $stateParams.itemId;
@@ -10,10 +10,22 @@ function DetailsController(ItemsService, $stateParams) {
     
     this.categories.forEach(item => {
         item.items.forEach(product => {
-            if (product.id === itemId) this.currItem = product;
+            if (product.id === itemId) {
+                this.currItem = product;
+                this.copy = Object.assign({}, this.currItem);
+            };
         })
     })
 
+    this.save = function(){
+        ItemsService.saveItem(this.copy);
+        $state.go("homePage")
+    
+    }
+    this.cancel = function(){
+        $state.go("homePage")
+    
+    }
 }
 
 export default DetailsController

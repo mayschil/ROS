@@ -1,34 +1,34 @@
 <div class="dtl-form">
     <form>
             <div class="form-check">
-                    Id:<input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.id" value="{{detailsCtrl.currItem.id}}" autofocus>
+                    Id:<input type="text" class="form-check-input" ng-model="detailsCtrl.copy.id" value="{{detailsCtrl.copy.id}}" autofocus>
               <label class="form-check-label" for="exampleCheck1"></label>
             </div>
             <div class="form-check">
-                Name: <input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.name" value="{{detailsCtrl.currItem.name}}" autofocus>
+                Name: <input type="text" class="form-check-input" ng-model="detailsCtrl.copy.name" value="{{detailsCtrl.copy.name}}" autofocus>
                 <label class="form-check-label" for="exampleCheck1"></label>
             </div>
             <div class="form-check">
-                    In stock: <input type="text" class="form-check-input"ng-model="detailsCtrl.currItem.in_stock" value="{{detailsCtrl.currItem.in_stock}}" autofocus>
+                    In stock: <input type="text" class="form-check-input"ng-model="detailsCtrl.copy.in_stock" value="{{detailsCtrl.copy.in_stock}}" autofocus>
                 <label class="form-check-label" for="exampleCheck1"></label>
             </div>
             <div class="form-check">
-                    Modifier_groups_count: <input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.modifier_groups_count" value="{{detailsCtrl.currItem.modifier_groups_count}}"
+                    Modifier_groups_count: <input type="text" class="form-check-input" ng-model="detailsCtrl.copy.modifier_groups_count" value="{{detailsCtrl.copy.modifier_groups_count}}"
                 autofocus>
                 <label class="form-check-label" for="exampleCheck1"></label>
             </div>
             <div class="form-check">
-                    Modifier_groups_id: <input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.modifier_groups_id" value="{{detailsCtrl.currItem.modifier_groups_id}}"
+                    Modifier_groups_id: <input type="text" class="form-check-input" ng-model="detailsCtrl.copy.modifier_groups_id" value="{{detailsCtrl.copy.modifier_groups_id}}"
                 autofocus>
                 <label class="form-check-label" for="exampleCheck1"></label>
             </div>
             <div class="form-check">
-                    Open:<input type="text" class="form-check-input" ng-model="detailsCtrl.currItem.open" value="{{detailsCtrl.currItem.open}}" autofocus>
+                    Open:<input type="text" class="form-check-input" ng-model="detailsCtrl.copy.open" value="{{detailsCtrl.copy.open}}" autofocus>
                 <label class="form-check-label" for="exampleCheck1"></label>
             </div>
 
             <ul class="dtl-prc-list">
-                <li class="dtl-prc" ng-repeat="price in detailsCtrl.currItem.price_levels">
+                <li class="dtl-prc" ng-repeat="price in detailsCtrl.copy.price_levels">
                     <div class="dtl-prc-div">
                     Price_levels.id: <input type="text"  class="form-check-input" ng-model="price.id" value="{{price.id}}">
                     <label class="form-check-label" for="exampleCheck1"></label>
@@ -41,8 +41,7 @@
             </ul>
 
     </form>
-    <a ui-sref="homePage">
-            <button type="submit" class="btn btn-primary">Save changes</button>
-        </a>
+            <button type="submit" class="btn btn-primary" ng-click="detailsCtrl.save()">Save changes</button>
+            <button type="submit" class="btn btn-danger" ng-click="detailsCtrl.cancel()">cancel</button>
           
 </div>
