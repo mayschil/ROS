@@ -9,7 +9,10 @@
 						<p class="size" ng-if="itemsListCtrl.item.price_levels.length > 1">Choose size:</p>
 						<li ng-repeat="price in itemsListCtrl.item.price_levels" ng-if="itemsListCtrl.item.price_levels.length > 1">
 
-							<label><input  type="radio" name="radio" ng-click="itemsListCtrl.setOrd(price)" ng-model="price.price" value="{{price.price}}">{{price.price}}</label>
+							<label><input  type="radio" name="radio" ng-click="itemsListCtrl.setOrd(price)" ng-model="price.price" value="{{price.price}}">
+								<span>{{price.price}}</span>
+								
+							</label>
 						</li>
 					</ul>
 					<ul ng-if="itemsListCtrl.modifierGroups">
@@ -18,7 +21,7 @@
 								<p>{{modifier.name}}:</p>
 								<ul>
 									<li ng-repeat="mod in modifier.options">
-										<label class="mod-lbl"><input ng-click="itemsListCtrl.setOrd(mod)" type="radio" name="radio" ng-model="mod.name" value="{{mod.name}}">
+										<label class="mod-lbl"><input  type="radio" name="radio1"  ng-click="itemsListCtrl.setOrd(mod)" value="{{mod.name}}">
 										<p class="mod-name">{{mod.name}}</p>
 									</label>
 
@@ -28,11 +31,16 @@
 							<div ng-if="modifier.name === 'Toppings'">
 								<p>{{modifier.name}}</p>
 								<ul>
-									<li ng-repeat="mod in modifier.options">
-										<label class="mod-lbl"><input ng-click="itemsListCtrl.setOrd(mod)" type="radio" name="radio1" ng-model="mod.name" value="{{mod.name}}">
-										<p class="mod-name">{{mod.name}}</p>
-									</label>
-
+									<li class="mod-name-top" ng-repeat="mod in modifier.options">
+										<div class="mod-name-opt">
+											<p class="mod-name-top">{{mod.name}}</p>
+											<select ng-model="mod.amount">
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+												  </select>
+										</div>
+										<button type="submit" class="btn btn-primary" ng-click="itemsListCtrl.setTop(mod.name,mod.amount)"><i class="fa fa-check" aria-hidden="true" ></i></button>
 									</li>
 								</ul>
 							</div>
@@ -73,7 +81,7 @@
 <!-- drag and drop  -->
 <div class="out-container">
 	<ul dnd-list="lists" class="list-container">
-		<li class="item-li" ng-repeat="item in itemsListCtrl.currcategory track by $index" dnd-draggable="item" dnd-type="item.name"
+		<li class="item-li" ng-repeat="item in itemsListCtrl.category track by $index" dnd-draggable="item" dnd-type="item.name"
 		 dnd-effect-allowed="move" dnd-moved="lists.splice($index, 1)" dnd-selected="models.selected = item">
 			<div class="item-name-edit" ng-if="item.name !== 'Drag your items to print'">
 				<div class="item-wraper">

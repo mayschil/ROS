@@ -9,7 +9,7 @@ const ItemsListComponent = {
 	controller: itemsListController,
 	template: require('./itemsList.html'),
 	bindings: {
-		currcategory: '<'
+		category: '<'
 	}
 };
 

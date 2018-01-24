@@ -1,0 +1,11 @@
+
+
+//inside the file
+1.cmd - npm i
+2.cmd - npm run dev
+
+//browser
+3.http://localhost:8080
+
+//the rest of the instructions appear on the front page of the app
+//notice the editing options on the items - before and after dragging them

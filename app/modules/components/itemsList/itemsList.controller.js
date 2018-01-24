@@ -4,6 +4,7 @@
 function itemsListController(ItemsService, $window) {
     'ngInject'
 
+    
     this.isActive = false;
     this.throwMsg = false;
     this.editItem = function (item) {
@@ -30,8 +31,8 @@ function itemsListController(ItemsService, $window) {
     this.count = 0;
     this.showWord = function () {
         if (this.count === 0) {
-            var l = this.currcategory.length;
-            this.tempCont = this.currcategory.splice(l - 1, 1)
+            var l = this.category.length;
+            this.tempCont = this.category.splice(l - 1, 1)
         }
         this.count++;
     }
@@ -40,9 +41,9 @@ function itemsListController(ItemsService, $window) {
     //this function prints the items to order
     this.print = function () {
         var itemsToPrint = [];
-        var l = this.currcategory.length;
-        this.tempCont = this.currcategory.splice(l - 1, 1)
-        this.currcategory = [];
+        var lng = this.category.length;
+        this.tempCont = this.category.splice(lng - 1, 1)
+        this.category = [];
         var arr = this.tempCont[0].columns
 
         for (var i = 0; i < arr.length; i++) {
@@ -51,7 +52,7 @@ function itemsListController(ItemsService, $window) {
                 if (arr[i].name !== 'Drag your items to print') itemsToPrint.push(arr[i].name)
             }
         }
-        console.log(itemsToPrint)
+        console.log('the printed items are:', itemsToPrint)
         this.msg = true;
     }
 
@@ -63,10 +64,14 @@ function itemsListController(ItemsService, $window) {
 
 
     this.setOrd = function (term) {
-        console.log(term)
-        if (term.price) this.item.order.push(term.price)
-        else this.item.order.push(term.name)
+        if (term.price) this.item.order.push({size:term.price})
+        else this.item.order.push({name:term.name})
 
+    }
+    this.setTop = function (term,amount) {
+        console.log(term,amount)
+        this.item.order.push({name:term, amount:amount})
+        console.log(this.item.order)
     }
 }
 
