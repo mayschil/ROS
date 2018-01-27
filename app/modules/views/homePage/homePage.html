@@ -2,12 +2,15 @@
 	<div class="top-container" >
 		<ul class="categories" ng-if="homePageCtrl.categories">
 			<li  ng-repeat="category in homePageCtrl.categories" ng-click="homePageCtrl.showItems(category)">
-				<p class="ctg-name">{{category.name}}</p>
+				<p class="ctg-name" >{{category.name}}</p>
+			</li>
+			<li>
+				<p class="ctg-name" ng-click="homePageCtrl.goToMod()">Modifiers</p>
 			</li>
 		</ul>
 		<p class="msg">Welcome to ROS. In order to start please search for an item or press on one of the categories.</p>
 		<p class="msg">Then drag the item your client wish to order into the drop box.</p>
-		<p class="msg">Open the developer tools console in order to see the printed items.</p>
+		<p class="msg">Open the developer tools console in order to see the printed items.Press ROS to return to front page</p>
 
 		<input class="search-box" type="text" ng-model="text" ng-change="homePageCtrl.checkWord(text)" />
 	</div>

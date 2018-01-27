@@ -52,11 +52,12 @@ function itemsListController(ItemsService, $window) {
                 if (arr[i].name !== 'Drag your items to print') itemsToPrint.push(arr[i].name)
             }
         }
-        console.log('the printed items are:', itemsToPrint)
+        console.log('The printed items are:', itemsToPrint)
         this.msg = true;
     }
 
     this.closeModal = function (comment) {
+        if(comment)
         this.item.order.push({ 'comment': comment })
         this.isActive = false;
 
@@ -69,9 +70,7 @@ function itemsListController(ItemsService, $window) {
 
     }
     this.setTop = function (term,amount) {
-        console.log(term,amount)
         this.item.order.push({name:term, amount:amount})
-        console.log(this.item.order)
     }
 }
 

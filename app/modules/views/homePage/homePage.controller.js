@@ -1,6 +1,6 @@
 "use strict";
 
-function HomePageController(ItemsService) {
+function HomePageController(ItemsService,$state) {
 
     'ngInject'
 
@@ -69,7 +69,9 @@ this.checkWord = function(text){
     }
     }
    
-       
+       this.goToMod = function(){
+        $state.go("modifier")
+       }
 
 }
 

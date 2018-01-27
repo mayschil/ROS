@@ -380,6 +380,11 @@ class itemsService {
         return catIems
     }
 
+
+    getModifiers() {
+        return modifierGruop
+    }
+
     getItem(itemId) {
         var itemToReturn;
         catIems.categories.forEach(category => {
@@ -403,8 +408,43 @@ class itemsService {
     saveItem(item) {
         for (var i = 0; i < catIems.categories.length; i++) {
             for (var j = 0; j < catIems.categories[i].items.length; j++) {
-                if(catIems.categories[i].items[j].id === item.id) catIems.categories[i].items[j] = item;
-               
+                if (catIems.categories[i].items[j].id === item.id) catIems.categories[i].items[j] = item;
+
+            }
+        }
+    }
+
+    saveMod(item) {
+        for (var i = 0; i < modifiers.modifiers.length; i++) {
+            if (modifiers.modifiers[i] === item[0].id) modifiers.modifiers[i] = item;
+        }
+    }
+
+    deleteMod(item) {
+
+        for (var i = 0; i < modifiers.modifiers.length; i++) {
+            if (modifiers.modifiers[i].id === item.id)
+                modifiers.modifiers.splice(i, 1)
+        }
+
+        for (var i = 0; i < modifierGruop.modifier_groups.length; i++) {
+            for (var j = 0; j < modifierGruop.modifier_groups[i].options.length; j++) {
+                if (modifierGruop.modifier_groups[i].options[j].id === item.id)
+                    modifierGruop.modifier_groups[i].options.splice(j, 1)
+            }
+        }
+
+
+    }
+
+
+    deleteItem(item) {
+        for (var i = 0; i < catIems.categories.length; i++) {
+            for (var j = 0; j < catIems.categories[i].items.length; j++) {
+
+                if (catIems.categories[i].items[j].id === item.id) {
+                    catIems.categories[i].items.splice(j, 1)
+                }
             }
         }
     }

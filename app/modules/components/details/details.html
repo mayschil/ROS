@@ -17,22 +17,22 @@
                 autofocus>
                 <label class="form-check-label" for="exampleCheck1"></label>
             </div>
-            <div class="form-check">
+            <!-- <div class="form-check">
                     Modifier_groups_id: <input type="text" class="form-check-input" ng-model="detailsCtrl.copy.modifier_groups_id" value="{{detailsCtrl.copy.modifier_groups_id}}"
                 autofocus>
                 <label class="form-check-label" for="exampleCheck1"></label>
-            </div>
-            <div class="form-check">
+            </div> -->
+            <!-- <div class="form-check">
                     Open:<input type="text" class="form-check-input" ng-model="detailsCtrl.copy.open" value="{{detailsCtrl.copy.open}}" autofocus>
                 <label class="form-check-label" for="exampleCheck1"></label>
-            </div>
+            </div> -->
 
             <ul class="dtl-prc-list">
                 <li class="dtl-prc" ng-repeat="price in detailsCtrl.copy.price_levels">
-                    <div class="dtl-prc-div">
+                    <!-- <div class="dtl-prc-div">
                     Price_levels.id: <input type="text"  class="form-check-input" ng-model="price.id" value="{{price.id}}">
                     <label class="form-check-label" for="exampleCheck1"></label>
-                </div>
+                </div> -->
                 <div>
                     Price_levels.price: <input type="text" class="form-check-input" ng-model="price.price" value="{{price.price}}">
                     <label class="form-check-label" for="exampleCheck1"></label>
@@ -42,6 +42,7 @@
 
     </form>
             <button type="submit" class="btn btn-primary" ng-click="detailsCtrl.save()">Save changes</button>
-            <button type="submit" class="btn btn-danger" ng-click="detailsCtrl.cancel()">cancel</button>
+            <button type="submit" class="btn btn-warning" ng-click="detailsCtrl.cancel()">Cancel</button>
+            <button type="submit" class="btn btn-danger" ng-click="detailsCtrl.deleteItem(detailsCtrl.copy.id)">Delete item</button>
           
 </div>

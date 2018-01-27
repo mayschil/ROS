@@ -23,8 +23,14 @@ function DetailsController(ItemsService, $stateParams,$state) {
     
     }
     this.cancel = function(){
-        $state.go("homePage")
+        window.location.href = $state.href('homePage');
+        window.location.reload();
     
+    }
+
+    this.deleteItem = function(itemId){
+        ItemsService.deleteItem(this.copy);
+        $state.go("homePage")
     }
 }
 

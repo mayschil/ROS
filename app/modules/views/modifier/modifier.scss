@@ -1,0 +1,72 @@
+$font-size:20px;
+
+.mods-names{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.mods-options{
+    margin: auto;
+    width: 90%;
+    // margin-left: 20px;
+}
+
+.mods-options-box{
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.mod-name{
+    margin-top: 5px;
+    padding: 5px;
+    border-radius:5px;
+}
+
+.mod{
+    font-size: $font-size;
+}
+
+.mods-names{
+    margin-top: 50px;
+}
+
+// .btn-primary, .btn-warning ,.btn-danger{
+//     margin: 0;
+// }
+
+// .btns-box{
+// margin-top: 20px;
+// margin-bottom: 20px;
+// }
+
+.mod-row{
+    display: flex;
+    width:100%;
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    box-shadow: 1px 2px 6px 0px black;
+    
+}
+
+@media (max-width:640px) {
+    .mod-row{
+     
+        height: 100px;
+      
+    }
+  }
+
+  @media (max-width:480px) {
+    .mod-row{
+        height: 140px;
+    }
+  }

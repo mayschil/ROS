@@ -1,0 +1,25 @@
+<ul class="mods-names">
+    <li ng-repeat="mod in modCtrl.modifiersNames">
+        <p ng-click=modCtrl.showMods(mod) class="mod">{{mod}}</p>
+    </li>
+</ul>
+
+<div ng-if="modCtrl.open" class="mods-options-box">
+    <div ng-if="modCtrl.copy" class="mods-options">
+            <i class="fa fa-times" aria-hidden="true" ng-click="modCtrl.close()"></i>
+        <ul>
+                <ul>
+                    <li ng-repeat="data in modCtrl.copy" class="mod-row">
+                       
+                        <input class="mod-name" type="text" ng-model="data.name" value="{{data.name}}"/> 
+                       <div class="btns-box">
+                            <button type="submit" class="btn btn-primary" ng-click="modCtrl.save()">Save changes</button>
+                            <button type="submit" class="btn btn-warning" ng-click="modCtrl.cancel()">Cancel</button>
+                            <button type="submit" class="btn btn-danger" ng-click="modCtrl.deleteItem(data)">Delete modifier</button>
+                       </div>
+                        
+                    </li>
+                </ul>
+        </ul>
+    </div>
+</div>
